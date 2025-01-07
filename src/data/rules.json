@@ -1,0 +1,69 @@
+{
+    "regles": [
+      {
+        "cibles": {
+          "age": {
+            "type": "integer"
+          },
+          "sexe": {
+            "type": "string",
+            "options": ["Homme", "Femme"]
+          },
+          "statut": {
+            "type": "string",
+            "options": ["actif", "inactif", "lite", "full"]
+          }
+        },
+  
+        "partenaires": {
+          "type": "string",
+          "options": ["AUCHAN", "RAPIDO", "WOYOFAL", "SENEAU"]
+        },
+  
+        "transaction": {
+          "transaction_amount": {
+            "min": {
+              "type": "float"
+            },
+            "max": {
+              "type": "float"
+            }
+          },
+          "transaction_datetime": {
+            "type": "date"
+          },
+          "transaction_gateway_type": {
+            "type": "string",
+            "options": ["USSD", "WEB"]
+          },
+          "transaction_subtype": {
+            "type": "select",
+            "options": ["P2P","CASHIN","RC","B2BMERCHPAY","CASHOUT","MERCHPAY"]
+          },
+          "transaction_user_type": {
+            "type": "string",
+            "options": ["CHANNEL", "SUBSCRIBER"]
+          }
+        },
+  
+        "recompenses": {
+          "remiseFrais": {
+            "pourcentage": {
+              "type": "float"
+            }
+          },
+          "cadeaux": {
+            "credit":{
+              "type": "integer"
+            },
+            "minutes_appel":{
+              "type": "integer"
+            },
+            "passe_internet":{
+              "type": "integer"
+            }
+          }
+        }
+      }
+    ]
+  }

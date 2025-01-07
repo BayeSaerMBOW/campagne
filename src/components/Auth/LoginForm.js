@@ -196,7 +196,7 @@ const LoginForm = () => {
           <div className="mt-8 text-center">
             <p className="text-gray-600">
               Nouveau sur Orange Money ?{" "}
-              <a href="/signup" className="text-orange-500 hover:text-orange-600 font-medium">
+              <a href="#" className="text-orange-500 hover:text-orange-600 font-medium">
                 Créer un compte
               </a>
             </p>

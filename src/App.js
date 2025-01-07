@@ -13,6 +13,7 @@ import SignupForm from "./components/Auth/SignupForm";
 import DashboardPage from "./components/pages/DashboardPage";
 import CreateCampaignForm from "./components/pages/CreateCampaignForm";
 import ListCampaigns from "./components/pages/ListCampaigns";
+import Settings from "./components/pages/Settings";
 
 const App = () => {
   return (
@@ -20,7 +21,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/signup" element={<SignupForm />} />
+       
 
         {/* Admin routes wrapped in AdminLayout */}
         <Route path="/admin" element={<AdminLayout />}>
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="dashboard" element={<DashboardPage />} />
           <Route path="create-campaign" element={<CreateCampaignForm />} />
           <Route path="listCampaigns" element={<ListCampaigns />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
     </Router>

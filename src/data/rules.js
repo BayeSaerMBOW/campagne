@@ -8,7 +8,8 @@ const availableRules = [
   { id: 'paymentMethod', name: 'Moyen de paiement', type: 'select', options: ['Carte bancaire', 'Chèque', 'Virement'] },
   { id: 'paymentFrequency', name: 'Fréquence de paiement', type: 'select', options: ['Mensuelle', 'Trimestrielle', 'Semestrielle'] },
 
-  // Ajoutez d'autres règles ici...
+  // Ajouter d'autres règles si nécessaire
+  
 
 ];
 
