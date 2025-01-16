@@ -1,7 +1,7 @@
 {
     "regles": [
       {
-        "cibles": {
+        "clients": {
           "age": {
             "type": "integer"
           },

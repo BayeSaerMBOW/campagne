@@ -1,0 +1,103 @@
+{
+    "clients": {
+        "icon": "👥",
+        "title": "Clients",
+        "description": "Définir les critères liés aux clients",
+        "rules": {
+          "age_range": {
+            "name": "Tranche d'âge",
+            "type": "range",
+            "min": {
+              "name": "Âge minimum",
+              "type": "integer"
+            },
+            "max": {
+              "name": "Âge maximum",
+              "type": "integer"
+            }
+          },
+          "sexe": {
+            "name": "Sexe",
+            "type": "select",
+            "options": ["Homme", "Femme"]
+          },
+          "statut": {
+            "name": "Statut",
+            "type": "select",
+            "options": ["actif", "inactif", "lite", "full"]
+          }
+        }
+      },
+    "partenaires": {
+      "icon": "🤝",
+      "title": "Partenaires",
+      "description": "Sélectionner les partenaires concernés",
+      "rules": {
+        "partenaire": {
+          "name": "Partenaire",
+          "type": "select",
+          "options": ["AUCHAN", "RAPIDO", "WOYOFAL", "SENEAU"]
+        }
+      }
+    },
+    "transaction": {
+        "icon": "💳",
+        "title": "Transactions",
+        "description": "Configurer les règles de transaction",
+        "rules": {
+          "amount_range": {
+            "name": "Tranche de montant",
+            "type": "range",
+            "min": {
+              "name": "Montant minimum",
+              "type": "float"
+            },
+            "max": {
+              "name": "Montant maximum",
+              "type": "float"
+            }
+          },
+          "transaction_datetime": {
+            "name": "Date et heure",
+            "type": "date"
+          },
+          "transaction_gateway_type": {
+            "name": "Type de gateway",
+            "type": "select",
+            "options": ["USSD", "WEB"]
+          },
+          "transaction_subtype": {
+            "name": "Sous-type",
+            "type": "select",
+            "options": ["P2P", "CASHIN", "RC", "B2BMERCHPAY", "CASHOUT", "MERCHPAY"]
+          }
+        }
+      },
+    "recompenses": {
+      "icon": "🎁",
+      "title": "Récompenses",
+      "description": "Définir les récompenses de la campagne",
+      "rules": {
+        "remiseFrais": {
+          "pourcentage": {
+            "name": "Pourcentage de remise",
+            "type": "float"
+          }
+        },
+        "cadeaux": {
+          "credit": {
+            "name": "Crédit",
+            "type": "integer"
+          },
+          "minutes_appel": {
+            "name": "Minutes d'appel",
+            "type": "integer"
+          },
+          "passe_internet": {
+            "name": "Passe internet",
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }

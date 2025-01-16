@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent } from "../../components/ui/card.js"; // Chemin relatif corrigé
+import { Card, CardContent } from "../ui/card.js"; // Chemin relatif corrigé
 
 import {
   LineChart,

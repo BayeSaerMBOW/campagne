@@ -5,7 +5,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "../../components/ui/card.js";  // Chemin relatif corrigé
+} from "../ui/card.js";  // Chemin relatif corrigé
 
 const ListCampaigns = () => {
   // État pour la recherche et le filtre
