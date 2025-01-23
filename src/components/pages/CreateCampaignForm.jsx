@@ -213,6 +213,44 @@ const CreateCampaignForm = () => {
 
   const renderRuleInput = (rule, uniqueId) => {
     const value = ruleValues[uniqueId] || '';
+       // Cas spécial pour le pourcentage de remise
+       if (rule.name === "Pourcentage de remise") {
+        return (
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <label className="block text-sm text-gray-600">Pourcentage de remise</label>
+              <input
+                type="number"
+                min="0"
+                max="100"
+                step="0.01"
+                value={value.percentage || ''}
+                onChange={(e) => handleRuleValueChange(uniqueId, {
+                  ...value,
+                  percentage: e.target.value
+                })}
+                placeholder="Ex: 10.5"
+                className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="block text-sm text-gray-600">Montant capé (maximum)</label>
+              <input
+                type="number"
+                min="0"
+                step="1"
+                value={value.cappedAmount || ''}
+                onChange={(e) => handleRuleValueChange(uniqueId, {
+                  ...value,
+                  cappedAmount: e.target.value
+                })}
+                placeholder="Ex: 5000"
+                className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
+              />
+            </div>
+          </div>
+        );
+      }
       
     if (rule.type === 'range') {
       return renderRangeInput(rule, uniqueId);
@@ -263,7 +301,7 @@ const CreateCampaignForm = () => {
       }))
     };
     console.log('Données de la campagne:', campaignData);
-    // Ici vous pouvez ajouter la logique pour envoyer les données à votre API logique bi fila wara nekk
+    // votre API logique bi fila wara nekk
   };
   const TechnicalSimSection = () => (
     <div className="border border-gray-200 rounded-lg p-4 mb-4">
@@ -305,6 +343,12 @@ const CreateCampaignForm = () => {
   
   const formatRuleValue = (rule, value, conditionType = 'equal') => {
     if (!value) return 'Non défini';
+    
+    if (rule.name === "Pourcentage de remise") {
+      const percentage = value.percentage || 'Non défini';
+      const cappedAmount = value.cappedAmount || 'Non défini';
+      return `${percentage}% (Capé à ${cappedAmount} FCFA)`;
+    }
     
     if (rule.type === 'range') {
       if (conditionType === 'between') {

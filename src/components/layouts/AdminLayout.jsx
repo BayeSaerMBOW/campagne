@@ -1,4 +1,3 @@
-// src/components/layouts/AdminLayout.jsx
 import React, { useState } from "react";
 import Sidebar from "../common/Sidebar";
 import Navbar from "../common/Navbar";
@@ -16,22 +15,28 @@ const AdminLayout = () => {
   };
 
   return (
-    <div
-      className={`flex ${
-        isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
-      }`}
-    >
-      <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className="flex-1 flex flex-col">
-        <Navbar
-          toggleSidebar={toggleSidebar}
-          toggleTheme={toggleTheme}
-          isDarkMode={isDarkMode}
-          handleLogout={handleLogout}
-        />
-        <main className="flex-1 p-6">
+    <div className="min-h-screen bg-gray-100">
+      {/* Sidebar */}
+      <div className={`fixed left-0 top-0 h-screen z-20 ${isSidebarOpen ? 'w-64' : 'w-16'}`}>
+        <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      </div>
+
+      {/* Navbar et contenu principal */}
+      <div className={`${isSidebarOpen ? 'ml-64' : 'ml-16'}`}>
+        {/* Navbar */}
+        <div className="fixed top-0 right-0 z-10 h-16" style={{ left: isSidebarOpen ? '256px' : '64px' }}>
+          <Navbar
+            toggleSidebar={toggleSidebar}
+            toggleTheme={toggleTheme}
+            isDarkMode={isDarkMode}
+            handleLogout={handleLogout}
+          />
+        </div>
+
+        {/* Contenu principal */}
+        <div className="pt-16 p-6">
           <Outlet />
-        </main>
+        </div>
       </div>
     </div>
   );
