@@ -34,12 +34,16 @@
           "full"
         ]
       },
-      "adresse": {
-        "name": "adresse",
+      "bamba": {
+        "name": "Bamba",
         "type": "input"
       },
-      "moussa": {
-        "name": "Moussa",
+      "bobo": {
+        "name": "bobo",
+        "type": "input"
+      },
+      "fatima": {
+        "name": "Fatima",
         "type": "input"
       }
     }

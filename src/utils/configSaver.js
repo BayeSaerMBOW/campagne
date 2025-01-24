@@ -1,21 +1,30 @@
-// src/utils/configSaver.js
 export const saveConfig = (config) => {
+  const url = "http://localhost:3271";
+  const save = async (path, data) => {
     try {
-      // Sauvegarder dans localStorage
-      localStorage.setItem('rulesConfig', JSON.stringify(config));
-      
-      // Option : si vous voulez aussi mettre à jour un fichier JSON
-      const jsonString = JSON.stringify(config, null, 2);
-      const blob = new Blob([jsonString], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'rulesConfig.json';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const response = await fetch(`${url}/${path}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      console.log(`Résultat de la sauvegarde pour ${path}:`, response.ok);
     } catch (error) {
-      console.error('Erreur de sauvegarde', error);
+      console.log(`Erreur lors de la sauvegarde de ${path}:`, error.message);
     }
   };
+
+  const saveAllConfig = async () => {
+    try {
+      const entries = Object.entries(config);
+      const savePromises = entries.map(async ([key, value]) => {
+        await save(key, value);
+      });
+      await Promise.all(savePromises);
+      console.log("Toutes les configurations ont été sauvegardées.");
+    } catch (error) {
+      console.error("Erreur lors de la sauvegarde des configurations:", error.message);
+    }
+  };
+
+  saveAllConfig();
+};

@@ -13,7 +13,7 @@ const LoginForm = () => {
   // Images de démonstration (à remplacer par les vraies images Orange Money)
   const images = [
     {
-      url: "https://scontent.fdkr5-1.fna.fbcdn.net/v/t39.30808-6/464194033_8468688296545587_8553629351151166262_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=-mv7fjlTXb0Q7kNvgG9Di9Z&_nc_zt=23&_nc_ht=scontent.fdkr5-1.fna&_nc_gid=Ajg_XSNXU2aqRRBctmWF6WT&oh=00_AYBQsGNegd3awy9vaP4bLJQ98cXFiTrFV0059XdxV4aMdA&oe=678188EE",
+      url: "https://caractereconseil.com/assets/c_brands/orange_money/campagne_1/thumb-d3ae8fa1f83c4e97148d88174c51f3a2991bfed89344ae8a64a90b852f7ae1a5.jpg",
       title: "Transfert d'argent instantané",
       description: "Envoyez de l'argent à vos proches en quelques clics"
     },

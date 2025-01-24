@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AlertCircle,Plus, X,CheckCircle2, FileText, Smartphone } from 'lucide-react';
+import { AlertCircle, Plus, X, CheckCircle2, FileText, Smartphone, Users, Shuffle } from 'lucide-react';
 import rulesConfig from '../../data/rulesConfig.json';
 
 const CreateCampaignForm = () => {
@@ -9,6 +9,10 @@ const CreateCampaignForm = () => {
     technicalSim: {
       msisdn: '',
       enabled: false
+    },
+    clientSelection: {
+      type: 'all', // 'all', 'first', 'random'
+      count: null
     }
   });
   const [draggedItem, setDraggedItem] = useState(null);
@@ -18,7 +22,16 @@ const CreateCampaignForm = () => {
   const [showSummary, setShowSummary] = useState(false);
   const [ruleValues, setRuleValues] = useState({});
   const [conditionTypes, setConditionTypes] = useState({});
-
+  
+  const handleClientSelectionChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      clientSelection: {
+        ...prev.clientSelection,
+        [field]: value
+      }
+    }));
+  };
 
   const handleDragStart = (rule) => {
     setDraggedItem(rule);
@@ -291,14 +304,16 @@ const CreateCampaignForm = () => {
         );
     }
   };
-  const handleSubmit = (e) => {
+   // Modify the handleSubmit method to include client selection
+   const handleSubmit = (e) => {
     e.preventDefault();
     const campaignData = {
       ...formData,
       rules: droppedRules.map(rule => ({
         ...rule,
         value: ruleValues[rule.uniqueId]
-      }))
+      })),
+      clientSelection: formData.clientSelection
     };
     console.log('Données de la campagne:', campaignData);
     // votre API logique bi fila wara nekk
@@ -365,6 +380,49 @@ const CreateCampaignForm = () => {
     }
     return value || 'Non défini';
   };
+    // Add a new section in the form for client selection
+    const ClientSelectionSection = () => (
+      <div className="border border-gray-200 rounded-lg p-4 mb-4">
+        <div className="flex items-center gap-2 mb-4">
+          <Users className="w-5 h-5 text-orange-500" />
+          <h3 className="font-medium text-gray-800">Sélection des clients</h3>
+        </div>
+        
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Type de sélection
+            </label>
+            <select
+              value={formData.clientSelection.type}
+              onChange={(e) => handleClientSelectionChange('type', e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
+            >
+              <option value="all">Tous les clients</option>
+              <option value="first">Premiers clients</option>
+              <option value="random">Sélection aléatoire</option>
+            </select>
+          </div>
+  
+          {(formData.clientSelection.type === 'first' || 
+            formData.clientSelection.type === 'random') && (
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Nombre de clients
+              </label>
+              <input
+                type="number"
+                min="1"
+                value={formData.clientSelection.count || ''}
+                onChange={(e) => handleClientSelectionChange('count', e.target.value)}
+                placeholder="Ex: 100"
+                className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    );
 
   const RulesSummary = () => {
     return (
@@ -429,6 +487,29 @@ const CreateCampaignForm = () => {
               </div>
             );
           })}
+           <div className="mb-4">
+            <h3 className="font-medium text-gray-700 flex items-center gap-2">
+              <Users className="w-5 h-5 text-orange-500" />
+              Sélection des clients
+            </h3>
+            <div className="mt-2 space-y-2">
+              {formData.clientSelection.type === 'all' && (
+                <p>Tous les clients éligibles</p>
+              )}
+              {formData.clientSelection.type === 'first' && (
+                <p>
+                  Les {formData.clientSelection.count || 'N'} premiers clients 
+                  répondant aux critères
+                </p>
+              )}
+              {formData.clientSelection.type === 'random' && (
+                <p>
+                  {formData.clientSelection.count || 'N'} clients sélectionnés 
+                  aléatoirement parmi les clients éligibles
+                </p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -534,7 +615,7 @@ const CreateCampaignForm = () => {
                 />
               </div>
               <TechnicalSimSection />
-
+              <ClientSelectionSection />
               {/* Règles déposées */}
               {droppedRules.length > 0 && (
                 <div className="space-y-4 pt-4">

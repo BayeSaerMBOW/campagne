@@ -1,0 +1,18 @@
+--watch/-w can be omitted, JSON Server 1+ watches for file changes by default
+JSON Server started on PORT :3271
+Press CTRL-C to stop
+Watching ./src/data/rulesConfig.json...
+
+♡⸜(˶˃ ᵕ ˂˶)⸝♡
+
+Index:
+http://localhost:3271/
+
+Static files:
+Serving ./public directory if it exists
+
+Endpoints:
+http://localhost:3271/clients
+http://localhost:3271/partenaires
+http://localhost:3271/transaction
+http://localhost:3271/recompenses
