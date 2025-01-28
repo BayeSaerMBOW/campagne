@@ -13,12 +13,12 @@ const LoginForm = () => {
   // Images de démonstration (à remplacer par les vraies images Orange Money)
   const images = [
     {
-      url: "https://caractereconseil.com/assets/c_brands/orange_money/campagne_1/thumb-d3ae8fa1f83c4e97148d88174c51f3a2991bfed89344ae8a64a90b852f7ae1a5.jpg",
+      url: "https://scontent.fdkr5-1.fna.fbcdn.net/v/t51.75761-15/469060686_17989652711744415_3383283260105695039_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGju1FEckC9qMkWe8Us_lmFOY5yrmllqTg5jnKuaWWpOKoMdwm6Ff58I8MBJ88GkVOlaItJSGxsjdl-u6FQRm8P&_nc_ohc=t98FF-P_L8gQ7kNvgHg5X0L&_nc_zt=23&_nc_ht=scontent.fdkr5-1.fna&_nc_gid=A_jjCi3SPHOzhH89NvC-nW_&oh=00_AYDAD_bv1vUl4SBHGTF-mtdbObC3hosOGyG00UqK8_NnbQ&oe=679D5A95",
       title: "Transfert d'argent instantané",
       description: "Envoyez de l'argent à vos proches en quelques clics"
     },
     {
-      url: "https://scontent.fdkr5-1.fna.fbcdn.net/v/t39.30808-6/406196087_326278636814729_1812661943052861803_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=vsXBR2XZEVgQ7kNvgFu2LEm&_nc_zt=23&_nc_ht=scontent.fdkr5-1.fna&_nc_gid=AjgYgJmNtnrE_G4A36v_1c9&oh=00_AYBhYA5ZCywxmI1r2mEB3a5hE0mAJcX2XkmGZFAYDvd6rg&oe=6781BDFD",
+      url: "https://scontent.fdkr7-1.fna.fbcdn.net/v/t51.75761-15/472217187_17993414717744415_6068947365060440527_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE9emiN7bY-A4HEG6Pl65D1aSZ47SzJPiNpJnjtLMk-I8-3XAMc8o_o9mmDfNx1rVZmk1OBourfGx9DdEK8MNie&_nc_ohc=Qt0bgefyE-8Q7kNvgFBr8Sm&_nc_zt=23&_nc_ht=scontent.fdkr7-1.fna&_nc_gid=AX6d-_Mo2A19ThtWnopoQne&oh=00_AYCLwunBEVttfYnZmUk9arGel8aMx54bwY2Ty7wV9h_kuQ&oe=679D64D0",
       title: "Paiement facile",
       description: "Réglez vos factures et achats quotidiens"
     },

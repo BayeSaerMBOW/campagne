@@ -45,6 +45,10 @@
       "fatima": {
         "name": "Fatima",
         "type": "input"
+      },
+      "ffdfg": {
+        "name": "FFDFG",
+        "type": "input"
       }
     }
   },
